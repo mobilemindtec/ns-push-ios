@@ -1,5 +1,5 @@
 Pod::Spec.new do |s|
-  s.name         = "NSPushPlugin"
+  s.name         = "PushPlugin"
   s.version      = "0.0.1"
   s.summary      = "NativeScript expandable list ios sources."
   s.description  = "NativeScript expandable list ios sources."
