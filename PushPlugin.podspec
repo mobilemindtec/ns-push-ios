@@ -7,8 +7,12 @@ Pod::Spec.new do |s|
   s.license      = { :type => 'MIT', :file => 'LICENSE' }
   s.author       = { "orta" => 'ricardo@mobilemind.com.br' }
   s.source       = { :git => "git@github.com:mobilemindtec/ns-push-ios.git", :tag => s.version.to_s }
-  s.platform     = :ios, '10.0'
+
   s.source_files = '*.{h,m}' 
+  
   s.requires_arc = true
+  s.ios.deployment_target = "6.0"
+  s.osx.deployment_target = "10.8"
+  s.tvos.deployment_target = "9.0"  
 
 end
