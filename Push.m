@@ -110,11 +110,23 @@ static char launchNotificationKey;
 
 - (void)didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
 {
+    
+    NSLog(@"deviceToken before = %@", deviceToken);
+    NSMutableString * str = [NSMutableString string];
+    for (int i = 0; i<sizeof(deviceToken); i++)
+    {
+        [str appendFormat:@"%d ", deviceToken[i]];
+    }
+
+    NSLog(@"deviceToken after 1 = %@", str);
+    
     NSMutableDictionary *results = [NSMutableDictionary dictionary];
-    NSString *token = [[[[deviceToken description] stringByReplacingOccurrencesOfString:@"<"withString:@""]
+    NSString *token = [[[str stringByReplacingOccurrencesOfString:@"<"withString:@""]
                         stringByReplacingOccurrencesOfString:@">" withString:@""]
                        stringByReplacingOccurrencesOfString: @" " withString: @""];
     [results setValue:token forKey:@"deviceToken"];
+
+    NSLog(@"deviceToken after 2 = %@", token);    
     
 #if !TARGET_IPHONE_SIMULATOR
     // Get Bundle Info for Remote Registration (handy if you have more than one app)
